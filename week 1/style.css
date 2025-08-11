@@ -1,0 +1,126 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #001f3d; /* Dark blue background */
+    color: #fff; /* White text */
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #003c7d; /* Darker blue for header */
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 2px solid #005fa3;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    font-weight: lighter;
+    margin-top: 10px;
+}
+
+/* About Section */
+#about {
+    background-color: #00284d; /* Slightly lighter blue */
+    padding: 60px 0;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #00aaff; /* Accent blue */
+}
+
+#about p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Projects Section */
+#projects {
+    background-color: #003b5c; /* Darker blue */
+    padding: 60px 0;
+}
+
+#projects h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00aaff; /* Accent blue */
+}
+
+.project {
+    background-color: #004d75; /* Medium blue */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.project p {
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #00284d; /* Lighter blue */
+    padding: 60px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #00aaff; /* Accent blue */
+}
+
+#contact p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #001f3d; /* Dark blue */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 2px solid #005fa3;
+}
+
