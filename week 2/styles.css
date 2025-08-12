@@ -60,7 +60,7 @@ body {
 }
 
 .operator {
-    background-color: #008CBA; /* Operator button color */
+    background-color: #008CBA; 
 }
 
 .operator:hover {
@@ -68,7 +68,7 @@ body {
 }
 
 .equal {
-    background-color: #28a745; /* Green color for equal button */
+    background-color: #28a745; 
 }
 
 .equal:hover {
