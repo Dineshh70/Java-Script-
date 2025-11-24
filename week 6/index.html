@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .todo-container {
+      width: 420px;
+      background: rgba(255, 120, 40, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 0 25px rgba(255, 140, 60, 0.4);
+      animation: fadeIn 0.6s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(255, 140, 60, 0.9);
+    }
+
+    .input-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 120, 40, 0.2);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    input:focus {
+      border-color: #ffae66;
+      box-shadow: 0 0 10px #ffae66;
+    }
+
+    button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff9447, #ff6a00);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 12px rgba(255, 120, 40, 0.8);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(255,150,70,1);
+    }
+
+    #taskList {
+      list-style: none;
+      padding: 0;
+    }
+
+    #taskList li {
+      background: rgba(255, 120, 40, 0.22);
+      backdrop-filter: blur(10px);
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #ff7b29;
+      transition: 0.3s;
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    #taskList li:hover {
+      background: rgba(255, 120, 40, 0.32);
+      transform: scale(1.02);
+    }
+
+    .complete {
+      text-decoration: line-through;
+      opacity: 0.55;
+      border-left-color: #ff4d4d;
+    }
+
+    .delete-btn {
+      background: #ff4d4d;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255, 50, 50, 0.8);
+    }
+
+    .delete-btn:hover {
+      background: #d40000;
+      transform: scale(1.07);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="todo-container">
+    <h1>📝 To-Do List</h1>
+
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Enter a new task">
+      <button id="addBtn">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskInput = document.querySelector("#taskInput");
+    const addBtn = document.querySelector("#addBtn");
+    const taskList = document.querySelector("#taskList");
+
+    addBtn.addEventListener("click", addTask);
+
+    taskInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") addTask();
+    });
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+
+      if (taskText === "") {
+        alert("❗ Please enter a task!");
+        return;
+      }
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span class="task-text">${taskText}</span>
+        <button class="delete-btn">Delete</button>
+      `;
+
+      li.querySelector(".task-text").addEventListener("click", () => {
+        li.classList.toggle("complete");
+      });
+
+      li.querySelector(".delete-btn").addEventListener("click", () => {
+        li.remove();
+      });
+
+      taskList.appendChild(li);
+      taskInput.value = "";
+    }
+  </script>
+
+</body>
+</html>
